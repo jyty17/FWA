@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "babel": {
+    "presets": ["es2015", "react"]
+  },
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -14,9 +17,11 @@
     "webpack": "^4.10.2",
     "webpack-dev-server": "^3.1.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-cli": "^2.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot"
   },
   "repository": {
     "type": "git",
