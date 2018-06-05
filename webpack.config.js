@@ -4,8 +4,9 @@ var config = {
       path:'/',
       filename: 'index.js',
    },
+   mode: 'production',
    devServer: {
-      inline: false,
+      inline: true,
       port: 8080
    },
    module: {
@@ -16,6 +17,21 @@ var config = {
          use: {
             loader: 'babel-loader'
          },
+      },
+      {
+         test: /\.css$/,
+         use: [
+         {
+            loader: 'style-loader'
+         },
+         { 
+            loader: 'css-loader',
+            options: {
+               modules: true,
+               importLoaders: 1
+            }
+         }
+         ]
       }]
    },
    resolve: {

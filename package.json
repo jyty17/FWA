@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "babel": {
-    "presets": ["es2015", "react"]
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -18,7 +21,9 @@
     "webpack-dev-server": "^3.1.4"
   },
   "devDependencies": {
-    "webpack-cli": "^2.1.4"
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
+    "webpack-cli": "^2.1.5"
   },
   "scripts": {
     "start": "webpack-dev-server --hot"
