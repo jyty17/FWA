@@ -13,10 +13,13 @@
 	font-size: 36pt;
 	padding-bottom: 15px;
 	color: #7F7F7F;
-  background: linear-gradient(4deg, #7CBF41, #FFFFFF);
 }
 .title h1 {
   font-size: 36pt;
+}
+form label {
+  display: block;
+  line-height: 20px;
 }
 .list {
   margin: auto;
