@@ -17,7 +17,7 @@ class App extends React.Component {
     this.setState({phone: x.target.value});
   }
   sendForm() {
-
+    // query name and 
   }
   render() {
     return (
