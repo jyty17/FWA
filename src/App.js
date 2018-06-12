@@ -1,43 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {
-  graphql,
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLString
-} from 'graphql';
 import { ApolloProvider} from "react-apollo"
+import { gql } from 'apollo-boost';
+import { Query } from 'react-apollo';
 
-var schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'RootQueryType',
-    fields: {
-      hello: {
-        type: GraphQLString,
-        resolve() {
-          return 'world';
-        }
-      }
+const GET_CHOICES = gql`
+  query {
+    movie(id: 1) {
+      id
+      title
     }
-  })
-});
-
-var query = '{ hello }';
-
-graphql(schema, query).then(result => {
-
-  // Prints
-  // {
-  //   data: { hello: "world" }
-  // }
-  console.log(result);
-
-});
+  }
+`
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(prop) {
+    super(prop);
     this.state={
       name: '',
       phone: ''
