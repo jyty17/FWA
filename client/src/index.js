@@ -3,38 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import ApolloClient from "apollo-boost";
+import { ApolloClient, InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from 'react-apollo';
+import { HttpLink } from 'apollo-link-http';
 
-// var express = require('express');
-// var bodyParser = require('body-parser');
-// var { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
-// var { makeExecutableSchema } = require('graphql-tools');
+const client = new ApolloClient({ 
+  link: new HttpLink({uri: "http://192.168.1.179:3000/graphql"}),
+  cache: new InMemoryCache()
 
-// var typeDefs = [`
-// type Query {
-//   hello: String
-// }
-
-// schema {
-//   query: Query
-// }`];
-
-// var resolvers = {
-//   Query: {
-//     hello(root) {
-//       return 'world';
-//     }
-//   }
-// };
-
-// var schema = makeExecutableSchema({typeDefs, resolvers});
-// var app = express();
-// app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
-// app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
-// app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
-
-const client = new ApolloClient({ uri: "http://localhost:4000/graphql" });
+});
 
 // client
 //   .query({
