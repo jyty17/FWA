@@ -34,6 +34,17 @@ var { makeExecutableSchema } = require('graphql-tools');
 var typeDefs = [`
 type Query {
   hello: String
+  user(name: String, email: String): User
+  food(name: String, amount: Int, show: Boolean): Food
+}
+type User {
+  name: String
+  email: String
+}
+type Food {
+  name: String
+  amount: Int
+  show: Boolean
 }
 
 schema {
@@ -46,6 +57,11 @@ var resolvers = {
       return 'world';
     }
   }
+  // User: {
+  //   name(root) {
+  //     return 'John';
+  //   }
+  // }
 };
 
 var schema = makeExecutableSchema({typeDefs, resolvers});

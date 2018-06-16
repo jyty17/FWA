@@ -3,14 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { ApolloClient, InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
+import { onError } from 'apollo-link-error';
+import { ApolloLink } from 'apollo-link';
 
-const client = new ApolloClient({ 
-  link: new HttpLink({uri: "http://192.168.1.179:3000/graphql"}),
+
+const client = new ApolloClient({
+  link: ApolloLink.from([
+    onError(({ graphQLErrors, networkError }) => {
+      if (graphQLErrors)
+        graphQLErrors.map(({ message, locations, path }) =>
+          console.log(
+            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+          ),
+        );
+      if (networkError) console.log(`[Network error]: ${networkError}`);
+    }),
+    new HttpLink({
+      uri: 'http://localhost:5000/GraphQL',
+      credentials: 'same-origin'
+    })
+  ]),
   cache: new InMemoryCache()
-
+  // link: new HttpLink({ uri: 'https://localhost:5000/graphql' }),
+  // cache: new InMemoryCache()
 });
 
 // client
@@ -33,6 +52,9 @@ const ApolloApp = AppComponent => (
 
 console.log("my client", client);
 
-ReactDOM.render(ApolloApp(App), document.getElementById('root'));
-// ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>, document.getElementById('root'));
+
 registerServiceWorker();
