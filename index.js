@@ -7,7 +7,7 @@ app.get('/api/hello', (req, res) => {
 });
 // --------------------------------------------------------------------
 
-// var graphqlHTTP = require('express-graphql');
+var graphqlHTTP = require('express-graphql');
 // var { buildSchema } = require('graphql');
 
 // var schema = buildSchema(`
@@ -67,7 +67,7 @@ var resolvers = {
 var schema = makeExecutableSchema({typeDefs, resolvers});
 app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
 app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
-// app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
