@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { ApolloProvider, graphql } from 'react-apollo';
-import ApolloClient from 'apollo-client';
+// import ApolloClient from 'apollo-client';
 import gql from 'graphql-tag';
 // import ApolloClient from 'apollo-boost';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -13,23 +13,23 @@ import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
 
-const client = new ApolloClient({ 
-  // uri: "http://localhost:5000/graphql"
-  link: new HttpLink({uri: 'http://localhost:5000/graphql'}),
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({ 
+//   uri: 'http://localhost:5000/graphql';
+//   // link: new HttpLink({uri: 'http://localhost:5000/graphql'}),
+//   // cache: new InMemoryCache()
+// });
 
-client
-  .query({
-    query: gql`
-      {
-        rates(currency: "USD") {
-          currency
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
+// client
+//   .query({
+//     query: gql`
+//       {
+//         rates(currency: "USD") {
+//           currency
+//         }
+//       }
+//     `
+//   })
+//   .then(result => console.log(result));
 
 // const ApolloApp = AppComponent => (
 //   <ApolloProvider client={client}>
@@ -37,11 +37,12 @@ client
 //   </ApolloProvider>
 // );
 
-console.log("my client", client);
+// console.log("my client", client);
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>, document.getElementById('root'));
+// ReactDOM.render(
+//   <ApolloProvider client={client}>
+//     <App />
+//   </ApolloProvider>, document.getElementById('root'));
+ReactDOM.render( <App /> , document.getElementById('root'));
 
 registerServiceWorker();

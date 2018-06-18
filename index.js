@@ -1,32 +1,17 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
+const cors = require('cors');
 
-app.get('/api/hello', (req, res) => {
+//allow cross origin requests
+app.use(cors());
+
+app.get('/', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
-// --------------------------------------------------------------------
 
 var graphqlHTTP = require('express-graphql');
-// var { buildSchema } = require('graphql');
 
-// var schema = buildSchema(`
-//   type Query {
-//     hello: String
-//   }
-// `);
-
-// var root = { hello: () => 'Hello world!' };
-
-// // var app = express();
-// app.use('/graphql', graphqlHTTP({
-//   schema: schema,
-//   rootValue: root,
-//   graphiql: true,
-// }));
-// app.listen(port, () => console.log(`Now browse to localhost:${port}/graphql`));
-
-// ----------------------------------------------------------------------
 var bodyParser = require('body-parser');
 var { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 var { makeExecutableSchema } = require('graphql-tools');
@@ -65,9 +50,12 @@ var resolvers = {
 };
 
 var schema = makeExecutableSchema({typeDefs, resolvers});
-app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
-app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
-
+// app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
+// app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  graphiql: true
+}));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

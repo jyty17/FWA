@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { ApolloProvider} from "react-apollo"
-import { gql } from 'apollo-boost';
+import { ApolloProvider, graphql} from "react-apollo"
+import ApolloClient from 'apollo-boost';
+import gql from 'apollo-boost';
 import { Query } from 'react-apollo';
 
 // const GET_CHOICES = gql`
@@ -14,26 +15,16 @@ import { Query } from 'react-apollo';
 //   }
 // `
 
+const client = new ApolloClient({ 
+  uri: 'http://localhost:5000/graphql'
+});
+
+console.log("my client? OMG", client);
+
 class App extends Component {
   state={
     name: '',
-    phone: '',
-    response: ''
-  };
-  // server setups
-  // state = {
-  //   response: ''
-  // };
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    return body;
+    phone: ''
   };
 
   // Functions go here
@@ -42,8 +33,7 @@ class App extends Component {
   }
   render() {
     return (
-      <ApolloProvider>
-      {this.state.response}
+      <ApolloProvider client={client}>
         <div className="layout">
           <div className="title">
             <h1>CCGN</h1>
