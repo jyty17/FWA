@@ -1,4 +1,5 @@
 const graphql = require('graphql');
+const _ = require('lodash');
 
 const { 
   GraphQLObjectType,
@@ -45,20 +46,26 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     person: {
       type: PersonType,
-      args: {id: {type: GraphQLString}}
+      args: {id: {type: GraphQLString}},
       resolve(parent, args){
         // code to get data from postgres db
+        return _.find(persons, {id: args.id});
       }
     }
-    food: {
-      type: FoodType,
-      args: {id: {type: GraphQLString}}
-      resolve(parent, args) {
-
-      }
-    }
+    // food: {
+    //   type: FoodType,
+    //   args: {id: {type: GraphQLString}},
+    //   resolve(parent, args) {
+    //     return _.find(foods, {id: args.id});
+    //   }
+    // }
   }
 });
+
+// person(id: 2) {
+//   name
+//   email
+// };
 
 module.exports = new GraphQLSchema({
   query: RootQuery
