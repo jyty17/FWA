@@ -30,6 +30,7 @@ class App extends Component {
   // Functions go here
   sendForm() {
     // send items to query 
+    
   }
   render() {
     return (

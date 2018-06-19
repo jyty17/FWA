@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { ApolloProvider, graphql } from 'react-apollo';
-// import ApolloClient from 'apollo-client';
-import gql from 'graphql-tag';
+// import { ApolloProvider, graphql } from 'react-apollo';
+// import gql from 'graphql-tag';
 // import ApolloClient from 'apollo-boost';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
-import { onError } from 'apollo-link-error';
-import { ApolloLink } from 'apollo-link';
+// import { InMemoryCache } from 'apollo-cache-inmemory';
+// import { HttpLink } from 'apollo-link-http';
 
 
 // const client = new ApolloClient({ 
