@@ -11,35 +11,42 @@ const getItemsQuery = gql`
     available 
   }
 }
-`;
+`
 
 class List extends React.Component {
   displayItems() {
     var data = this.props.data;
     if(data.loading) {
-      return 
+      return <div> Loading.... </div>;
     } else {
-      return data.foods.map(food )
+      return data.foods.map( food => {
+        return(
+          <li> {food.name} </li>
+        );
+      });
     }
   }
 
   render() {
     return(
-      <p className="prompt">Please select one of the following choices</p>
-        <div className="list">
-          <label className="container">One
-            <input type="radio" name="radio"></input>
-            <span className="checkmark"></span>
-          </label>
-          <label className="container">Two
-            <input type="radio" name="radio"></input>
-            <span className="checkmark"></span>
-          </label>
-          <label className="container">Three
-            <input type="radio" name="radio"></input>
-            <span className="checkmark"></span>
-          </label>
-        </div>
+      <div>
+        <p className="prompt">Please select one of the following choices</p>
+        {this.displayItems() }
+          <div className="list">
+            <label className="container">One
+              <input type="radio" name="radio"></input>
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">Two
+              <input type="radio" name="radio"></input>
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">Three
+              <input type="radio" name="radio"></input>
+              <span className="checkmark"></span>
+            </label>
+          </div>
+      </div>
     );
   }
 }

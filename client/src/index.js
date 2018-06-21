@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+
 // import { ApolloProvider, graphql } from 'react-apollo';
 // import gql from 'graphql-tag';
 // import ApolloClient from 'apollo-boost';
@@ -15,18 +15,6 @@ import registerServiceWorker from './registerServiceWorker';
 //   // link: new HttpLink({uri: 'http://localhost:5000/graphql'}),
 //   // cache: new InMemoryCache()
 // });
-
-// client
-//   .query({
-//     query: gql`
-//       {
-//         rates(currency: "USD") {
-//           currency
-//         }
-//       }
-//     `
-//   })
-//   .then(result => console.log(result));
 
 // const ApolloApp = AppComponent => (
 //   <ApolloProvider client={client}>
@@ -41,5 +29,3 @@ import registerServiceWorker from './registerServiceWorker';
 //     <App />
 //   </ApolloProvider>, document.getElementById('root'));
 ReactDOM.render( <App /> , document.getElementById('root'));
-
-registerServiceWorker();
