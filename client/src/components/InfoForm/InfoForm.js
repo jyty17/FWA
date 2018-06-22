@@ -1,19 +1,24 @@
 import React from 'react';
 import './InfoForm.css';
-import gql from 'apollo-boost';
-import graphql from 'react-apollo';
 
 class InfoForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  
 	render() {
 		return(
       <p className="prompt"> Please enter your name and phone number</p>
-        <form onSubmit={this.sendForm} >
-          <label>Name: <input type="text" value={this.state.value} onChange={(e) => this.setState({name: e.target.value})}/></label>
-          <label>Phone: <input type="text" value={this.state.value} onChange={(e) => this.setState({phone: e.target.value})}/></label>
+        <form onSubmit={this.props.sendForm} >
+          <label>Name: <input type="text" ref="name" /></label>
+          <label>Phone: <input type="text" ref="name" /></label>
+          <List />
           <input type="submit" value="Submit" />
         </form>
 			);
 	}
 }
 
-export default grapql()
+export default InfoForm;

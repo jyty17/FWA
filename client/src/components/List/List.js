@@ -1,28 +1,27 @@
 import React from 'react';
 import './List.css';
-import gql from 'apollo-boost';
-import graphql from 'react-apollo';
-
-const getItemsQuery = gql`
-{
-  foods {
-    name
-    amount
-    available 
-  }
-}
-`
+import List from '../List/List.js';
 
 class List extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state={
+      foods: []
+      title: 'Food List'
+    }
+  }
+  componentDidMount() {
+    console.log("Component has mounted");
+  }
+  
   displayItems() {
-    var data = this.props.data;
+    let foods = this.state.foods;
     if(data.loading) {
       return <div> Loading.... </div>;
     } else {
-      return data.foods.map( food => {
-        return(
-          <li> {food.name} </li>
-        );
+      return foods.map( food => {
+          <li key={food.id}> {food.name} </li>
       });
     }
   }
@@ -32,7 +31,7 @@ class List extends React.Component {
       <div>
         <p className="prompt">Please select one of the following choices</p>
         {this.displayItems() }
-          <div className="list">
+        {/*  <div className="list">
             <label className="container">One
               <input type="radio" name="radio"></input>
               <span className="checkmark"></span>
@@ -45,10 +44,10 @@ class List extends React.Component {
               <input type="radio" name="radio"></input>
               <span className="checkmark"></span>
             </label>
-          </div>
+          </div>*/}
       </div>
     );
   }
 }
 
-export default graphql(getItemsQuery)(List);
+export default List;
