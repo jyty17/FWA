@@ -44,8 +44,15 @@
   padding-bottom: 15px;
   color: #7F7F7F;
 }
+.title img {
+  vertical-align: middle;
+  width: 80px;
+}
 .title h1 {
+  vertical-align: middle;
+  display: inline-block;
   font-size: 36pt;
+  margin-left: 25px;
 }
 form label {
   display: block;
@@ -57,8 +64,6 @@ form label {
 }
 .container {
   display: block;
-  position: relative;
-  padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 22px;
@@ -69,7 +74,7 @@ form label {
   border: 1px solid #DDD;
   border-radius: 6px;
   overflow: auto;
-  overflow-wrap: break-word;
+  font-size: 16px;
 }
 
 .container h3 {
@@ -79,16 +84,19 @@ form label {
 
 .container input {
   position: absolute;
-  opacity: 0;
   cursor: pointer;
 }
 
 .container .selection {
-  float: right;
+  font-weight: lighter;
+}
+
+.container .selection p {
+  display: inline-block;
+  margin: 0;
 }
 
 .container .quantity {
-  opacity: 1;
   margin-left: 10px;
 }
 

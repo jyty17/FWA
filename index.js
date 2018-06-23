@@ -42,26 +42,31 @@ pool.connect((err, db, done) => {
       } else {
         console.log(table.rows);
       }
+      db.end();
     })
   }
 })
 
-// app.get('/api/food', function(request, response) {
-//   pool.connect((err, db, done) => {
-//     if(err) {
-//       return response.status(400).send(err);
-//     } else {
-//       db.query('SELECT * FROM "Horizon"', function(err, table) {
-//         // done();
-//         if(err) {
-//           return response.status(400).send(err)
-//         } else {
-//           return response.status(200).send(table.rows)
-//         }
-//       })
-//     }
-//   });
-// })
+app.get('/image/ccgn', (request, response) => {
+  response.sendFile('client/src/ccgn.png' , { root : __dirname});
+})
+
+app.get('/api/food', function(request, response) {
+  pool.connect((err, db, done) => {
+    if(err) {
+      return response.status(400).send(err);
+    } else {
+      db.query('SELECT * FROM "Horizon"', function(err, table) {
+        // done();
+        if(err) {
+          return response.status(400).send(err)
+        } else {
+          return response.status(200).send(table.rows)
+        }
+      })
+    }
+  });
+})
 
 app.post('/api/order-food', function(request, response) {
   var name = request.body.name;
