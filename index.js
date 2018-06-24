@@ -70,17 +70,18 @@ app.get('/api/food', function(request, response) {
 
 app.post('/api/order-food', function(request, response) {
   var name = request.body.name;
-  var email = request.body.email;
+  var phone = request.body.phone;
   var food_one = request.body.food_one;
   var food_two = request.body.food_two;
+  var food_three = request.body.food_three;
   var id = request.body.id;
   pool.connect((err, db, done) => {
     if(err) {
       return response.status(400).send(err);
     } else {
-      db.query('INSERT INTO "Horizon" (name, email, food_one, food_two, id) VALUES($1, $2, $3, $4, $5)',[name, email, food_one, food_two, id] , (err, table) => {
+      db.query('INSERT INTO "Horizon" (name, phone, food_one, food_two, food_three, id) VALUES($1, $2, $3, $4, $5, $6)',[name, phone, food_one, food_two, food_three, id] , (err, table) => {
         if(err) {
-          console.log("Error before data is inserted");
+          console.log("Error before data is inserted", err);
           return response.status(400).send(err);
         } else {
           console.log('DATA INSERTED');

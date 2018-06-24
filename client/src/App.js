@@ -10,7 +10,8 @@ class App extends Component {
     this.state={
       orders: [],
       food_one: 0,
-      food_two: 0
+      food_two: 0,
+      food_three: 0
     };
   }
 
@@ -22,10 +23,11 @@ class App extends Component {
     event.preventDefault();
     let user_info = {
       name: this.refs.name.value,
-      email: this.refs.email.value,
+      phone: this.refs.phone.value,
       id: Math.random().toFixed(3),
       food_one: this.state.food_one,
-      food_two: this.state.food_two
+      food_two: this.state.food_two,
+      food_three: this.state.food_three
     };
     var request = new Request('http://localhost:5000/api/order-food', {
       method: 'POST',
@@ -53,7 +55,7 @@ class App extends Component {
       .catch(function(err) {
         console.log(err);
       })
-      window.location.reload();
+      // window.location.reload();
   }
   render() {
     return (
@@ -63,10 +65,10 @@ class App extends Component {
           <h1>CCGN</h1>
         </div>
         <h2>Food Selection App</h2>
-        <p className="prompt"> Please enter your name and email number</p>
+        <p className="prompt"> Please enter your name and phone number</p>
         <form onSubmit={this.sendForm.bind(this)} >
           <label>Name: <input type="text" ref="name" /></label>
-          <label>Email: <input type="text" ref="email" /></label>
+          <label>Phone: <input type="number" ref="phone" /></label>
            <p className="prompt">Please select one of the following choices</p>
           <div className="list">
             <label className="container" >
@@ -87,7 +89,7 @@ class App extends Component {
               <h3>Pork</h3>
               <div className="selection">
                 <p>Quantity</p>
-                <input className="quantity" type="number" min="0" max="10" width="20px" onChange={(e)=> this.setState({ food_two: e.target.value})}></input>
+                <input className="quantity" type="number" min="0" max="10" width="20px" onChange={(e)=> this.setState({ food_three: e.target.value})}></input>
               </div>
             </label>
           </div>

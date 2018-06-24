@@ -65,7 +65,6 @@ form label {
 .container {
   display: block;
   margin-bottom: 12px;
-  cursor: pointer;
   font-size: 22px;
   user-select: none;
   text-align: left;
@@ -85,6 +84,12 @@ form label {
 .container input {
   position: absolute;
   cursor: pointer;
+}
+
+.container input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .container .selection {
