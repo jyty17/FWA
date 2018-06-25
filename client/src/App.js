@@ -14,6 +14,43 @@ class App extends Component {
       food_three: 0
     };
   }
+  // increment(event) {
+  //   if(event == this.state.food_one) {
+  //     let x = this.state.food_one + 1;
+  //     this.setState{
+  //       food_one: x
+  //     }
+  //   } else if(event == this.state.food_two) {
+  //     let x = this.state.food_two + 1;
+  //     this.setState{
+  //       food_two: x
+  //     }
+  //   } else if(event == this.state.food_three) {
+  //     let x = this.state.food_three + 1;
+  //     this.setState{
+  //       food_three: x
+  //     }
+  //   }
+  // }
+
+  // decrement(event) {
+  //   if(event == this.state.food_one) {
+  //     let x = this.state.food_one - 1;
+  //     this.setState{
+  //       food_one: x
+  //     }
+  //   } else if(event == this.state.food_two) {
+  //     let x = this.state.food_two - 1;
+  //     this.setState{
+  //       food_two: x
+  //     }
+  //   } else if(event == this.state.food_three) {
+  //     let x = this.state.food_three - 1;
+  //     this.setState{
+  //       food_three: x
+  //     }
+  //   }
+  // }
 
   // Functions go here
   sendForm(event) {
@@ -75,21 +112,50 @@ class App extends Component {
               <h3>Beef</h3>
               <div className="selection">
                 <p>Quantity</p>
-                <input className="quantity" type="number" min="0" max="10" width="20px" onChange={(e)=> this.setState({ food_one: e.target.value })}></input>
+                <div className="quantity-control">
+                  <button onClick={()=> this.setState({ food_one: this.state.food_one > 0 ? this.state.food_one - 1 : this.state.food_one })}>-</button>
+                  <input 
+                    className="quantity" 
+                    type="number" 
+                    min="0" 
+                    max="10" 
+                    width="25px" 
+                    height="30px"
+                    value={this.state.food_one}
+                    onChange={(e)=> this.setState({ food_one: e.target.value })}
+                    ></input>
+                    <button onClick={()=> this.setState({ food_one: this.state.food_one < 10 ? this.state.food_one + 1 : this.state.food_one })}>+</button>
+                  </div>
               </div>
             </label>
             <label className="container">
               <h3>Chicken</h3>
               <div className="selection">
                 <p>Quantity</p>
-                <input className="quantity" type="number" min="0" max="10" width="20px" onChange={(e)=> this.setState({ food_two: e.target.value})}></input>
+                <input 
+                  className="quantity" 
+                  type="number" 
+                  min="0" 
+                  max="10" 
+                  width="20px" 
+                  value={this.state.food_two}
+                  onChange={(e)=> this.setState({ food_two: e.target.value })}
+                  ></input>
               </div>
             </label>
             <label className="container">
               <h3>Pork</h3>
               <div className="selection">
                 <p>Quantity</p>
-                <input className="quantity" type="number" min="0" max="10" width="20px" onChange={(e)=> this.setState({ food_three: e.target.value})}></input>
+                <input 
+                  className="quantity" 
+                  type="number" 
+                  min="0" 
+                  max="10" 
+                  width="20px" 
+                  value={this.state.food_three}
+                  onChange={(e)=> this.setState({ food_three: e.target.value })}
+                  ></input>
               </div>
             </label>
           </div>

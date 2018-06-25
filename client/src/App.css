@@ -82,8 +82,11 @@ form label {
 }
 
 .container input {
-  position: absolute;
   cursor: pointer;
+  height: 25px;
+  width: 20px;
+  border-radius: 6px;
+  
 }
 
 .container input::-webkit-outer-spin-button,
@@ -101,8 +104,19 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.container .quantity {
+.container .quantity-control {
   margin-left: 10px;
+  display: inline-block;
+}
+
+.quantity-control button {
+  border-radius: 50%;
+  border: 1px solid #7ABD31;
+  color: #7ABD31;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  font-size: 15px;
 }
 
 .checkmark {
