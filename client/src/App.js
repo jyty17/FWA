@@ -14,43 +14,12 @@ class App extends Component {
       food_three: 0
     };
   }
-  // increment(event) {
-  //   if(event == this.state.food_one) {
-  //     let x = this.state.food_one + 1;
-  //     this.setState{
-  //       food_one: x
-  //     }
-  //   } else if(event == this.state.food_two) {
-  //     let x = this.state.food_two + 1;
-  //     this.setState{
-  //       food_two: x
-  //     }
-  //   } else if(event == this.state.food_three) {
-  //     let x = this.state.food_three + 1;
-  //     this.setState{
-  //       food_three: x
-  //     }
-  //   }
-  // }
+  
+  preSend(e) {
+    e.preventDefault();
+    console.log(this.state.orders, this.state.food_one, this.state.food_two, this.state.food_three);
 
-  // decrement(event) {
-  //   if(event == this.state.food_one) {
-  //     let x = this.state.food_one - 1;
-  //     this.setState{
-  //       food_one: x
-  //     }
-  //   } else if(event == this.state.food_two) {
-  //     let x = this.state.food_two - 1;
-  //     this.setState{
-  //       food_two: x
-  //     }
-  //   } else if(event == this.state.food_three) {
-  //     let x = this.state.food_three - 1;
-  //     this.setState{
-  //       food_three: x
-  //     }
-  //   }
-  // }
+  }
 
   // Functions go here
   sendForm(event) {
@@ -92,28 +61,28 @@ class App extends Component {
       .catch(function(err) {
         console.log(err);
       })
-      // window.location.reload();
+      window.location.reload();
   }
   render() {
     return (
       <div className="layout">
         <div className="title">
-          <img src="http://localhost:5000/image/ccgn" />
+          <img src="http://192.168.1.179:5000/image/ccgn" />
           <h1>CCGN</h1>
         </div>
-        <h2>Food Selection App</h2>
+        <h2>Sunday Food Service</h2>
         <p className="prompt"> Please enter your name and phone number</p>
         <form onSubmit={this.sendForm.bind(this)} >
           <label>Name: <input type="text" ref="name" /></label>
           <label>Phone: <input type="number" ref="phone" /></label>
            <p className="prompt">Please select one of the following choices</p>
           <div className="list">
-            <label className="container" >
+            <div className="container" >
               <h3>Beef</h3>
               <div className="selection">
                 <p>Quantity</p>
                 <div className="quantity-control">
-                  <button onClick={()=> this.setState({ food_one: this.state.food_one > 0 ? this.state.food_one - 1 : this.state.food_one })}>-</button>
+                  <button type="button" onClick={()=> this.setState({ food_one: this.state.food_one > 0 ? this.state.food_one - 1 : this.state.food_one })}>-</button>
                   <input 
                     className="quantity" 
                     type="number" 
@@ -124,42 +93,50 @@ class App extends Component {
                     value={this.state.food_one}
                     onChange={(e)=> this.setState({ food_one: e.target.value })}
                     ></input>
-                    <button onClick={()=> this.setState({ food_one: this.state.food_one < 10 ? this.state.food_one + 1 : this.state.food_one })}>+</button>
+                    <button type="button" onClick={()=> this.setState({ food_one: this.state.food_one < 10 ? this.state.food_one + 1 : this.state.food_one })}>+</button>
                   </div>
               </div>
-            </label>
-            <label className="container">
+            </div>
+            <div className="container">
               <h3>Chicken</h3>
               <div className="selection">
                 <p>Quantity</p>
-                <input 
-                  className="quantity" 
-                  type="number" 
-                  min="0" 
-                  max="10" 
-                  width="20px" 
-                  value={this.state.food_two}
-                  onChange={(e)=> this.setState({ food_two: e.target.value })}
-                  ></input>
+                <div className="quantity-control">
+                  <button type="button" onClick={()=> this.setState({ food_two: this.state.food_two > 0 ? this.state.food_two - 1 : this.state.food_two })}>-</button>
+                  <input 
+                    className="quantity" 
+                    type="number" 
+                    min="0" 
+                    max="10" 
+                    width="20px" 
+                    value={this.state.food_two}
+                    onChange={(e)=> this.setState({ food_two: e.target.value })}
+                    ></input>
+                  <button type="button" onClick={()=> this.setState({ food_two: this.state.food_two < 10 ? this.state.food_two + 1 : this.state.food_two })}>+</button>
+                </div>
               </div>
-            </label>
-            <label className="container">
+            </div>
+            <div className="container">
               <h3>Pork</h3>
               <div className="selection">
                 <p>Quantity</p>
-                <input 
-                  className="quantity" 
-                  type="number" 
-                  min="0" 
-                  max="10" 
-                  width="20px" 
-                  value={this.state.food_three}
-                  onChange={(e)=> this.setState({ food_three: e.target.value })}
-                  ></input>
+                <div className="quantity-control">
+                  <button type="button" onClick={()=> this.setState({ food_three: this.state.food_three > 0 ? this.state.food_three - 1 : this.state.food_three })}>-</button>
+                  <input 
+                    className="quantity" 
+                    type="number" 
+                    min="0" 
+                    max="10" 
+                    width="20px" 
+                    value={this.state.food_three}
+                    onChange={(e)=> this.setState({ food_three: e.target.value })}
+                    ></input>
+                  <button type="button" onClick={()=> this.setState({ food_three: this.state.food_three < 10 ? this.state.food_three + 1 : this.state.food_three })}>+</button>
+                </div>
               </div>
-            </label>
+            </div>
           </div>
-          <input type="submit" value="Submit" />
+          <input className="finalSubmit" type="submit" value="Send" />
         </form>
       </div>
     );
