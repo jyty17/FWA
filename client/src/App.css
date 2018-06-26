@@ -33,16 +33,28 @@
   padding: 0;
   text-align: center;
 }
+.content {
+  background-image: url(http://192.168.1.179:5000/image/food);
+  background-attachment: fixed;
+  padding-bottom: 40px;
+}
+.content h2 {
+  color: white;
+  margin: 0;
+  padding: 0.83em;
+}
 .prompt {
   font-family: sans-serif;
-  color: #7F7F7F;
+  /*color: #B9EB82;*/
+  color: #31bd75;
 }
 .title {
   text-transform: uppercase;
-  border-bottom: solid 1px black;
+  border-bottom: solid 3px #31bd75;
   font-size: 36pt;
   padding-bottom: 15px;
   color: #7F7F7F;
+  /*border-top: solid 5px #bd5231;*/
 }
 .title img {
   vertical-align: middle;
@@ -60,7 +72,14 @@ form div {
 }
 form label {
   display: block;
-  line-height: 30px;
+  line-height: 35px;
+  color: #31bd75;
+}
+form input {
+  height: 20px;
+}
+form .userInfo {
+
 }
 .list {
   margin: auto;
@@ -78,11 +97,12 @@ form label {
   border-radius: 6px;
   overflow: auto;
   font-size: 16px;
+  background-color: white;
 }
 
 .container h3 {
   margin-bottom: 0;
-  padding-bottom: 20px;
+  color: #31bd75;
 }
 
 .container input {
@@ -90,7 +110,7 @@ form label {
   height: 26px;
   width: 20px;
   border-radius: 6px;
-  border: 1px solid #7ABD31;
+  border: 1px solid #31bd75;
   margin: 0 5px;
   text-align: center;
 }
@@ -108,6 +128,7 @@ input::-webkit-inner-spin-button {
 .container .selection p {
   display: inline-block;
   margin: 0;
+  font-size: 11pt;
 }
 
 .container .quantity-control {
@@ -117,8 +138,8 @@ input::-webkit-inner-spin-button {
 
 .quantity-control button {
   border-radius: 50%;
-  border: 1px solid #7ABD31;
-  color: #7ABD31;
+  border: 1px solid #31bd75;
+  color: #31bd75;
   height: 30px;
   width: 30px;
   padding: 0;
@@ -138,11 +159,16 @@ input::-webkit-inner-spin-button {
   background-color: #7CBF41;
 }
 .finalSubmit {
-  padding: 10px;
-  font-weight: bold;
+  padding: 10px 20px;
   font-size: 16px;
-  border: 1px solid #7ABD31;
-  background-color: #7ABD31;
+  border: 1px solid #31bd75;
+  background-color: #31bd75;
   border-radius: 6px;
   color: white;
+  margin-top: 20px;
+}
+
+.finalSubmit:disabled,
+.finalSubmit[disabled] {
+  opacity: 0.6;
 }

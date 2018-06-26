@@ -50,6 +50,10 @@ pool.connect((err, db, done) => {
 app.get('/image/ccgn', (request, response) => {
   response.sendFile('client/src/ccgn.png' , { root : __dirname});
 })
+app.get('/image/food', (request, response) => {
+  response.sendFile('client/src/fp1.jpg' , { root : __dirname});
+})
+
 
 app.get('/api/food', function(request, response) {
   pool.connect((err, db, done) => {
