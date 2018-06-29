@@ -1,22 +1,17 @@
 import React from 'react';
-import './InfoForm.css';
+// import './InfoForm.css';
 
 class InfoForm extends React.Component {
 
   constructor(props) {
     super(props);
   }
-
-  
+  componentDidMount() {
+    console.log("InfoForm component mounted")
+  }
 	render() {
 		return(
-      <p className="prompt"> Please enter your name and phone number</p>
-        <form onSubmit={this.props.sendForm} >
-          <label>Name: <input type="text" ref="name" /></label>
-          <label>Phone: <input type="text" ref="name" /></label>
-          <List />
-          <input type="submit" value="Submit" />
-        </form>
+      <p >InfoForm</p>
 			);
 	}
 }

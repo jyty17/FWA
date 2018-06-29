@@ -1,0 +1,179 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/*----------------------------------------------------*/
+
+.layout {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.content {
+  background-image: url("http://192.168.1.179:5000/image/food");
+  /*background-attachment: fixed;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 40px;
+  border-bottom: solid 3px #31bd75
+}
+.content h2 {
+  color: white;
+  margin: 0;
+  padding: 0.83em;
+}
+.prompt {
+  font-family: sans-serif;
+  /*color: #B9EB82;*/
+  color: #31bd75;
+}
+.title {
+  text-transform: uppercase;
+  border-bottom: solid 3px #31bd75;
+  font-size: 36pt;
+  padding-bottom: 15px;
+  color: #7F7F7F;
+  /*border-top: solid 5px #bd5231;*/
+}
+.title img {
+  vertical-align: middle;
+  width: 80px;
+}
+.title h1 {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 36pt;
+  margin-left: 25px;
+}
+form div {
+  display: block;
+  line-height: 20px;
+}
+form label {
+  display: block;
+  line-height: 35px;
+  color: #31bd75;
+}
+form input {
+  height: 20px;
+}
+form .userInfo {
+
+}
+.list {
+  margin: auto;
+  max-width: 400px;
+}
+.container {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 22px;
+  user-select: none;
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 18pt;
+  border: 1px solid #DDD;
+  border-radius: 6px;
+  overflow: auto;
+  font-size: 16px;
+  background-color: white;
+}
+
+.container h3 {
+  margin-bottom: 0;
+  color: #31bd75;
+}
+
+.container input {
+  cursor: pointer;
+  height: 26px;
+  width: 20px;
+  border-radius: 6px;
+  border: 1px solid #31bd75;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.container input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.container .selection {
+  font-weight: lighter;
+}
+
+.container .selection p {
+  display: inline-block;
+  margin: 0;
+  font-size: 11pt;
+}
+
+.container .quantity-control {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.quantity-control button {
+  border-radius: 50%;
+  border: 1px solid #31bd75;
+  /*color: #31bd75;*/
+  color: white;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  font-size: 15px;
+}
+
+.checkmark {
+  float: left;
+  margin-right: 20px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 6px;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #7CBF41;
+}
+.finalSubmit {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #31bd75;
+  background-color: #31bd75;
+  border-radius: 6px;
+  color: white;
+  margin-top: 20px;
+}
+
+.finalSubmit:disabled,
+.finalSubmit[disabled] {
+  opacity: 0.6;
+}

@@ -1,0 +1,16 @@
+form {
+	text-align: center;
+}
+form label {
+	display: inline-block;
+	margin: auto 10px;
+}
+form button {
+  border: 1px solid #31bd75;
+  background-color: #31bd75;
+  border-radius: 5px;
+  color: white;
+  margin-top: 20px;
+  font-size: 14px;
+  padding: 3px 12px;
+}

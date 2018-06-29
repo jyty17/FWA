@@ -1,0 +1,46 @@
+.header-title {
+  text-transform: uppercase;
+  border-bottom: solid 3px #31bd75;
+  font-size: 36pt;
+  padding-bottom: 15px;
+  color: #7F7F7F;
+  text-align: center;
+  /*border-top: solid 5px #bd5231;*/
+}
+.header-title .header-menu {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  vertical-align: middle;
+}
+.menu-icon {
+  top: 40px !important;
+  margin-left: 50px;
+}
+.header-title h1 {
+  font-size: 12pt;
+}
+.header-title ul, li {
+  padding: 0;
+  list-style-type: none;
+  margin: 5px;
+  line-height: 10px;
+}
+.header-title a {
+  font-size: 10pt;
+  text-decoration: none;
+  color: #7F7F7F;
+}
+.header-title img {
+  vertical-align: middle;
+  width: 80px;
+}
+.header-title h2 {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 36pt;
+  margin-left: 25px;
+}

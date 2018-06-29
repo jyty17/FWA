@@ -54,6 +54,25 @@ app.get('/image/food', (request, response) => {
   response.sendFile('client/src/fp1.jpg' , { root : __dirname});
 })
 
+app.get('/search/:name/:phone', (request, response) => {
+  console.log("This is fetching correctly");
+  var name = request.body.name;
+  var phone = request.body.phone;
+  pool.connect((err, db, done) => {
+    if(err) {
+      return response.status(400).send(err);
+    } else {
+      db.query('SELECT food_one, food_two, food_three FROM "Horizon" WHERE name=$1 OR phone=$2', [name, phone], function(err, table) {
+        // done();
+        if(err) {
+          return response.status(400).send(err)
+        } else {
+          return response.status(200).send(table.rows)
+        }
+      })
+    }
+  });
+})
 
 app.get('/api/food', function(request, response) {
   pool.connect((err, db, done) => {
