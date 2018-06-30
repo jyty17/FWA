@@ -1,0 +1,38 @@
+.admin-content {
+	text-align: center;
+  margin: auto;
+  background-image: url("http://192.168.1.179:5000/image/food");
+  /*background-attachment: fixed;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 40px;
+  border-bottom: solid 3px #31bd75;
+  font-family: sans-serif;
+}
+
+.admin-content h1 {
+	font-size: 20pt;
+  color: white;
+  margin-top: 0;
+  /*text-align: left;*/
+  /*margin-left: 30px;*/
+}
+
+.admin-content p {
+  font-size: 18pt;
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+}
+.admin-content .total-section {
+  width: 400px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+.admin-content .total-section p {
+  font-weight: lighter;
+  text-decoration: none;
+  font-size: 16pt;
+}

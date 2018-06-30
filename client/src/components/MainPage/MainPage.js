@@ -10,8 +10,11 @@ class MainPage extends Component {
       orders: [],
       food_one: 0,
       food_two: 0,
-      food_three: 0
+      food_three: 0,
+      success: false,
     };
+
+    this.success.bind(this);
   }
 
   handleSubmit(event) {
@@ -53,13 +56,28 @@ class MainPage extends Component {
       .catch(function(err) {
         console.log(err);
       })
-      window.location.reload();
+      // window.location.reload();
+      this.success();
+      setTimeout(()=> window.location.reload, 2000)
+  }
+
+  success() {
+    this.setState({
+      success: !this.state.success,
+    })
   }
 
   render() {
     return (
       <div className="layout">
         <Header />
+        { this.state.success ? 
+          <div className="success">
+            <p>Thank you for your submission! Your order has been recorded. Refreshing...</p>
+          </div>
+          :
+          <div></div>
+        }
         <div className="content">
           <h2>Sunday Food Service</h2>
           <form onSubmit={this.handleSubmit.bind(this)} >
@@ -129,7 +147,6 @@ class MainPage extends Component {
                 </div>
               </div>
             </div>
-            {/*<input className="finalSubmit" type="submit" value="Send" />*/}
             <button disabled={!(this.refs.name && this.refs.phone)} className="finalSubmit">Send</button>
           </form>
         </div>

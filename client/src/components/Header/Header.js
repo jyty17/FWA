@@ -28,7 +28,7 @@ class Header extends Component {
       :
         <div className="menu-icon header-menu" onMouseEnter={this.handleMenu.bind(this)}>=</div>
       }
-        <img src="http://192.168.1.179:5000/image/ccgn" />
+        <img src="http://192.168.1.179:5000/image/ccgn" alt=""/>
         <h2>CCGN</h2>
       </div>
 		);

@@ -14,19 +14,19 @@ class EditPage extends Component {
   getEntries(event) {
     event.preventDefault();
     var that = this;
-    // let name = this.refs.name.value;
-    // let phone = this.refs.phone.value;
-    let search_info = {
-      name: this.refs.name.value,
-      phone: this.refs.phone.value
-    }
-    var request = new Request('http:localhost:5000/search/', {
-      method: 'GET',
-      headers: new Headers({ 'Content-Type': 'application/json'}),
-      body: search_info
-    });
+    let name = this.refs.name.value;
+    let phone = this.refs.phone.value;
+    // let search_info = {
+    //   name: this.refs.name.value,
+    //   phone: this.refs.phone.value
+    // }
+    // var request = new Request('http:localhost:5000/search/', {
+    //   method: 'GET',
+    //   headers: new Headers({ 'Content-Type': 'application/json'}),
+    //   body: search_info
+    // });
 
-    fetch(request)
+    fetch('http:localhost:5000/search/'+ name + '/' + phone)
       .then(function(response) {
         console.log("Error about to occur");
         response.json()

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 // import './App.css';
 import MainPage from './components/MainPage/MainPage.js';
 // import List from './components/List/List.js';
-// import InfoForm from './components/InfoForm/InfoForm.js';
+import AdminPage from './components/AdminPage/AdminPage.js';
 import EditPage from './components/EditPage/EditPage.js'
 import { Route, Switch } from 'react-router-dom';
 
@@ -25,11 +25,13 @@ class App extends Component {
   }
 
   render() {
+    const test = () => <div>Hello</div>;
     return (
       <Switch>
         <Route exact path="/" component={MainPage}/>
         <Route path="/user/edit" component={EditPage}/>
-        {/*<Route path="/sov-user/admin/" component={InfoForm}/>*/}
+        <Route exact path="/sov-user/admin" component={AdminPage}/>
+        <Route path="/abc" component={test} />
       </Switch>
     );
   }
