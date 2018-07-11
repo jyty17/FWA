@@ -42,10 +42,14 @@
   padding-bottom: 40px;
   border-bottom: solid 3px #31bd75;
 }
+.content .cover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
 .content h2 {
   color: white;
   margin: 0;
   padding: 0.83em;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.3);
 }
 .prompt {
   font-family: sans-serif;

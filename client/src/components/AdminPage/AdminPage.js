@@ -10,7 +10,8 @@ class AdminPage extends Component {
       food_two: 0,
       food_three: 0,
       entries: [],
-      entriesTotal: 0
+      entriesTotal: 0,
+      foodNames: []
     }
   }
 
@@ -28,6 +29,22 @@ class AdminPage extends Component {
       })
       .catch(function(err) {
         console.log(err);
+      })
+
+    fetch('http://localhost:5000/api/food/type')
+      .then(function(response) {
+        response.json()
+          .then(function(data) {
+            let temp =[];
+            var i;
+            for(i=0; i<data.length; i++) {
+              if(data[i].data_type === 'integer') {
+                temp.push(data[i].column_name);
+              }
+            }
+            that.setState({ foodNames: temp});
+            console.log(that.state.foodNames);
+          })
       })
   }
 
@@ -50,7 +67,7 @@ class AdminPage extends Component {
 		return(
       <div>
         <Header />
-        <div className="admin-content">
+        <div className="admin-content"><div className= "cover">
           <h1> Hello </h1>
           <p> Total </p>
           { 
@@ -65,6 +82,7 @@ class AdminPage extends Component {
             <p>Food Choice Two: <span>{ optionTwo }</span></p>
             <p>Food Choice Three: <span>{ optionThree }</span></p>
           </div>
+        </div>
         </div>
       </div>
       );

@@ -91,6 +91,22 @@ app.get('/api/food', function(request, response) {
   });
 })
 
+app.get('/api/food/type', function(request, response) {
+  pool.connect((err, db, done) => {
+    if(err) {
+      return response.status(400).send(err);
+    } else {
+      db.query("SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'Horizon'", function(err, table) {
+        if(err) {
+          return response.status(400).send(err);
+        } else {
+          return response.status(200).send(table.rows);
+        }
+      }
+    )}
+  })
+})
+
 app.post('/api/order-food', function(request, response) {
   var name = request.body.name;
   var phone = request.body.phone;

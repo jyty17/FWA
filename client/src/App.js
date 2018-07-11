@@ -31,7 +31,6 @@ class App extends Component {
         <Route exact path="/" component={MainPage}/>
         <Route path="/user/edit" component={EditPage}/>
         <Route exact path="/sov-user/admin" component={AdminPage}/>
-        <Route path="/abc" component={test} />
       </Switch>
     );
   }

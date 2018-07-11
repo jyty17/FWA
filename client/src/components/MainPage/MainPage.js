@@ -78,7 +78,7 @@ class MainPage extends Component {
           :
           <div></div>
         }
-        <div className="content">
+        <div className="content"><div className= "cover">
           <h2>Sunday Food Service</h2>
           <form onSubmit={this.handleSubmit.bind(this)} >
             <div className="userInfo">
@@ -149,6 +149,7 @@ class MainPage extends Component {
             </div>
             <button disabled={!(this.refs.name && this.refs.phone)} className="finalSubmit">Send</button>
           </form>
+        </div>
         </div>
       </div>
     );
